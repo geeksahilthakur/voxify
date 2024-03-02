@@ -22,3 +22,7 @@ But that's not all! Voxify also helps you convert your personal notes into engag
 
 
 Join us on this exciting journey and let's make learning fun again with Voxify! 🥳
+
+##Screenshots
+![voxify-screenshot]([http://url/to/img.png](https://github.com/geeksahilthakur/voxify/blob/master/static/Screenshot%202024-03-02%20174327.png?raw=true)https://github.com/geeksahilthakur/voxify/blob/master/static/Screenshot%202024-03-02%20174327.png?raw=true)
+
