@@ -40,6 +40,6 @@ Join us on this exciting journey and let's make learning fun again with Voxify! 
 
 
 ### Team voxify : 
-1. Dr. Sahil Thakur
-2. Karanjot Singh
+1. Sahil Thakur
+2. Karanjot Singh Malhotra
 3. Shambhavi Singh 
