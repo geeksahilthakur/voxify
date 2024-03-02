@@ -29,7 +29,10 @@ Join us on this exciting journey and let's make learning fun again with Voxify! 
 
 ![Image](https://raw.githubusercontent.com/geeksahilthakur/voxify/master/static/Screenshot%202024-03-02%20174327.png)
 
+
 2) Download video
+
+   
 ![Image](https://raw.githubusercontent.com/geeksahilthakur/voxify/master/static/down.png)
 
 
