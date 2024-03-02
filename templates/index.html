@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +9,7 @@
         /* Add your CSS styles here */
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #ffff;
             margin: 0;
             padding: 0;
             text-align: center;
@@ -23,41 +24,52 @@
         }
 
         input[type="text"] {
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            margin-bottom: 10px;
-            width: 300px;
-            font-size: 16px;
-            outline: none;
+            bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #d4d4d4;
+  padding: 10px;
+  width: 85%;
+  background: transparent;
+  transition: all .25s ease;
         }
 
         button[type="submit"] {
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
+            position: absolute;
+  border-radius: 30px;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  background-color: #8186FF;
+  color: #FFF;
+  padding: 12px 25px;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 5px;
+  right: -10px;
+  bottom: -20px;
+  cursor: pointer;
+  transition: all .25s ease;
+  box-shadow: -5px 6px 20px 0px #393939;
+
         }
 
         button[type="submit"]:hover {
-            background-color: #0056b3;
+            background-color: #8186FF;
         }
 
         p {
-            margin-top: 20px;
-            color: #007bff;
+            color: #7678be;
             font-weight: bold;
         }
 
         a {
             display: inline-block;
+            margin-right:30px;
+            margin-left:30px;
+            margin-bottom:30px
             margin-top: 10px;
             padding: 10px 20px;
-            background-color: #28a745;
+            background-color: #7678be;
             color: #fff;
             text-decoration: none;
             border-radius: 5px;
@@ -66,29 +78,206 @@
         }
 
         a:hover {
-            background-color: #218838;
+            background-color: #8186ff;
         }
 
         #loadingGif {
             display: none;
             margin-top: 20px;
         }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.911);
+            backdrop-filter : blur(9px);
+            z-index: 999;
+        }
+
+        .popup-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;;
+            transform: translate(-50%, -50%);
+            /* background-color: #fff;
+            padding: 20px; */
+            /* border-radius: 5px; */
+            /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); */
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+        @keyframes popupIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes popupOut {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1.2);
+    }
+}
+
+.popup.animate-in {
+    animation: popupIn 0.5s ease-out forwards;
+}
+
+.popup.animate-out {
+    animation: popupOut 0.5s ease-out forwards;
+}
+
+
+
+
+.subscribe {
+  position: relative;
+  height: 50%;
+  width: 70%;
+  padding: 20px;
+  background-color: #FFF;
+  border-radius: 4px;
+  color: #333;
+  box-shadow: 0px 0px 60px 5px rgba(0, 0, 0, 0.4);
+}
+
+.subscribe:after {
+  position: absolute;
+  content: "";
+  right: -10px;
+  bottom: 18px;
+  width: 0;
+  height: 0;
+  border-left: 0px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #1a044e;
+}
+
+.subscribe p {
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  letter-spacing: 4px;
+  line-height: 1px;
+}
+
+.subscribe input {
+
+  bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #d4d4d4;
+  padding: 10px;
+  width: 85%;
+  background: transparent;
+  transition: all .25s ease;
+  font-size: 20px;
+}
+
+.subscribe input:focus {
+  outline: none;
+  border-bottom: 1px solid #8186FF;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', 'sans-serif';
+}
+
+.subscribe .submit-btn {
+  position: absolute;
+  border-radius: 30px;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  background-color: #8186FF;
+  color: #FFF;
+  padding: 12px 25px;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 5px;
+  right: -10px;
+  bottom: -20px;
+  cursor: pointer;
+  transition: all .25s ease;
+  box-shadow: -5px 6px 20px 0px rgba(26, 26, 26, 0.4);
+}
+
+.subscribe .submit-btn:hover {
+  background-color: #ffff;
+  color: #8186FF;
+  box-shadow: -5px 6px 20px 0px rgba(88, 88, 88, 0.569);
+  border: 2px solid #8186FF;
+}
+
+
+
+
+
+
+
+
+
     </style>
 </head>
 <body>
-    <h1>Video Generation </h1>
-    <p>by Sahil Thakur</p>
-    <form id="generateForm">
-        <label for="topic">Enter Topic:</label><br><br>
-        <input type="text" id="topic" name="topic"><br><br>
-        <button type="submit">Generate Video</button>
+    <div class="popup" id="popu">
+        <div class="popup-content">
+          <img src="{{ url_for('static', filename='logo.png') }}" width="85%">
+        </div>
+      </div>
+
+      <img src="{{ url_for('static', filename='voxifylogo.gif') }}" width="35%" style="margin-bottom: 30px;margin-top: 30px;">
+
+</center>
+
+<center>
+    <form id="generateForm" class="subscribe">
+        <p for="topic">Enter Topic:</p><br><br>
+        <input type="text" id="topic" name="topic" class="subscribe-input" placeholder="Heyy!! What you want to know about :) "><br><br>
+        <button type="submit" class="submit-btn">GENERATE VIDEO</button>
     </form>
-    <center><img id="loadingGif" src="{{ url_for('static', filename='loading.gif') }}" alt="Loading..." width="250" loop>
+    <center><img id="loadingGif" src="../static/loading.gif" alt="Loading..." width="15%" loop>
     </center>
     <p id="videoStatus" style="display: none;">Video generated successfully!</p>
     <a id="downloadLink" href="#" style="display: none;">Download Video</a>
+</center>
+
 
     <script>
+       document.addEventListener("DOMContentLoaded", function() {
+    var popup = document.getElementById('popu');
+    popu.style.display = 'block';
+
+    popup.classList.add('animate-in');
+
+    setTimeout(function() {
+        popup.classList.remove('animate-in');
+        popup.classList.add('animate-out');
+
+        setTimeout(function() {
+            popu.style.display = 'none';
+        }, 500); // Adjust this value according to the animation duration
+    }, 3000); // 5000 milliseconds = 5 seconds
+});
+
+function closePopup() {
+    document.getElementById('popup').style.display = 'none';
+}
+
         document.addEventListener('DOMContentLoaded', function() {
             const generateForm = document.getElementById('generateForm');
             const videoStatus = document.getElementById('videoStatus');
