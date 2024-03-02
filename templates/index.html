@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Generation </title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            margin-top: 50px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            width: 300px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            margin-top: 20px;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #218838;
+        }
+
+        #loadingGif {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Video Generation </h1>
+    <p>by Sahil Thakur</p>
+    <form id="generateForm">
+        <label for="topic">Enter Topic:</label><br><br>
+        <input type="text" id="topic" name="topic"><br><br>
+        <button type="submit">Generate Video</button>
+    </form>
+    <center><img id="loadingGif" src="{{ url_for('static', filename='loading.gif') }}" alt="Loading..." width="250" loop>
+    </center>
+    <p id="videoStatus" style="display: none;">Video generated successfully!</p>
+    <a id="downloadLink" href="#" style="display: none;">Download Video</a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const generateForm = document.getElementById('generateForm');
+            const videoStatus = document.getElementById('videoStatus');
+            const downloadLink = document.getElementById('downloadLink');
+            const loadingGif = document.getElementById('loadingGif');
+
+            generateForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const topic = document.getElementById('topic').value.trim();
+                if (topic === '') {
+                    alert('Please enter a topic.');
+                    return;
+                }
+
+                loadingGif.style.display = 'block';
+
+                fetch('/generate', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: new URLSearchParams({
+                        'topic': topic
+                    })
+                })
+                .then(response => {
+                    if (response.ok) {
+                        loadingGif.style.display = 'none';
+                        videoStatus.style.display = 'block';
+                        downloadLink.style.display = 'block';
+                        downloadLink.setAttribute('href', '/download_video');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            });
+        });
+    </script>
+</body>
+</html>
